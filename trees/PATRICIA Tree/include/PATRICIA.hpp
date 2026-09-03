@@ -9,7 +9,7 @@ using EdgeLabel   = string;
 using IsEndOfWord = bool;
 
 struct RadixTreeNode {
-    EdgeLabel   content;
+    EdgeLabel content;
     IsEndOfWord endWord;
     unordered_map<char, RadixTreeNode*> children;
 
