@@ -6,7 +6,7 @@ INC_DIR = include
 OUT_DIR = src/output
 
 TARGET  = $(OUT_DIR)/splay
-SOURCES = Splay.cpp $(SRC_DIR)/main.cpp
+SOURCES = $(SRC_DIR)/Splay.cpp $(SRC_DIR)/main.cpp
 HEADERS = $(INC_DIR)/Splay.hpp
 
 all: $(TARGET)
