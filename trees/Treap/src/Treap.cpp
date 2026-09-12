@@ -105,9 +105,8 @@ void TreapTree::destructor(TreapNode* root){
 }
 
 void TreapTree::insert(int newNode){
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dist(1, 1000000);
+    static mt19937 gen(42);
+    static uniform_int_distribution<> dist(1, 1000000);
     int weight = dist(gen);
 
     TreapNode* node = new TreapNode(newNode, weight, nullptr, nullptr);

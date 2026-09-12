@@ -44,22 +44,22 @@ void RadixTree::insert(RadixTreeNode* node, string word) {
     string sufixOld = contentAux.substr(count);
     string sufixNew = word.substr(count);
 
-    if (sufixOld.empty() && sufixNew.empty()) {
+    if (sufixOld.empty() && sufixNew.empty()) { // Caso 1
         node->endWord = true;
 
         return;
-    }
+    }                                           // Caso 1
 
-    if (sufixOld.empty() && !sufixNew.empty()) {
+    if (sufixOld.empty() && !sufixNew.empty()) { // Caso 2
         if (node->children.count(sufixNew.at(0))) {
             insert(node->children[sufixNew.at(0)], sufixNew);
         } else {
             node->children[sufixNew.at(0)] = new RadixTreeNode(sufixNew, true);
         }
         return;
-    }
+    }                                            // Caso 2
 
-    if (!sufixOld.empty() && sufixNew.empty()) {
+    if (!sufixOld.empty() && sufixNew.empty()) { // Caso 3
         RadixTreeNode* oldChild = new RadixTreeNode(sufixOld, node->endWord);
         oldChild->children = node->children;
 
@@ -68,8 +68,9 @@ void RadixTree::insert(RadixTreeNode* node, string word) {
         node->children.clear();
         node->children[sufixOld.at(0)] = oldChild;
         return;
-    }
+    }                                            // Caso 3
 
+                                                 // Caso 4
     RadixTreeNode* newChild = new RadixTreeNode(sufixNew, true);
     RadixTreeNode* oldChild = new RadixTreeNode(sufixOld, node->endWord);
     oldChild->children = node->children;
@@ -79,7 +80,8 @@ void RadixTree::insert(RadixTreeNode* node, string word) {
     node->children.clear();
     node->children[sufixNew.at(0)] = newChild;
     node->children[sufixOld.at(0)] = oldChild;
-}
+                                                 // Caso 4
+}                                               
 
 RadixTreeNode* RadixTree::remove(RadixTreeNode* node, string word){
     if(!search(word)){

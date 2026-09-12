@@ -5,9 +5,9 @@ SRC_DIR = src
 INC_DIR = include
 OUT_DIR = src/output
 
-TARGET  = $(OUT_DIR)/trie
-SOURCES = $(SRC_DIR)/Trie.cpp $(SRC_DIR)/main.cpp
-HEADERS = $(INC_DIR)/Trie.hpp
+TARGET  = $(OUT_DIR)/kdtree
+SOURCES = $(SRC_DIR)/KDTree.cpp $(SRC_DIR)/main.cpp
+HEADERS = $(INC_DIR)/KDTree.hpp
 
 all: $(TARGET)
 
@@ -19,4 +19,4 @@ run: all
 	./$(TARGET)
 
 clean:
-	rm -f $(OUT_DIR)/trie
+	rm -f $(OUT_DIR)/kdtree

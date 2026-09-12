@@ -1,0 +1,13 @@
+# Binários compilados
+*/src/output/*
+
+# Arquivos de dados gerados
+data/strings/*.txt
+data/integers/*.txt
+data/kd/*.txt
+
+# Output do benchmark
+output/
+
+# Logs e arquivos temporários
+*.log

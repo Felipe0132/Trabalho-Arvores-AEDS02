@@ -1,5 +1,5 @@
 CXX      = g++
-CXXFLAGS = -std=c++20 -Wall -Wextra
+CXXFLAGS = -std=c++20 -Wall -Wextra -O2
 
 SRC_DIR = src
 INC_DIR = include
@@ -12,6 +12,7 @@ HEADERS = $(INC_DIR)/PATRICIA.hpp
 all: $(TARGET)
 
 $(TARGET): $(SOURCES) $(HEADERS)
+	@mkdir -p $(OUT_DIR)
 	$(CXX) $(CXXFLAGS) -I$(INC_DIR) $(SOURCES) -o $(TARGET)
 
 run: all
